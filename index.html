@@ -24,7 +24,7 @@
             env(safe-area-inset-bottom)
             env(safe-area-inset-left);
             -webkit-tap-highlight-color: transparent;
-            font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans" ,"メイリオ", "Meiryo", sans-serif;
+            font-family: "Noto Sans JP", "Hiragino Sans" ,"メイリオ", "Meiryo", sans-serif;
         }
         </style>
     </head>
@@ -34,8 +34,10 @@
         <header class="w-full bg-white text-black flex items-center justify-center gap-6 fixed top-0 left-0 z-50" style="height: 117px;">
             <nav class="absolute bottom-3 right-6 flex gap-4">
                 <a href="#Story" class="text-[23px] hover:no-underline">Story</a>
-                <a href="#cast" class="text-[23px] hover:no-underline">Cast</a>
-                <a href="#Info" class="text-[23px] hover:no-underline">Info</a>
+                <span class="mt-1 h-[23px] w-[1px] bg-black inline-block"></span>
+                <a href="#cast" class="text-[23px] hover:no-underline">Characters</a>
+                <span class="mt-1 h-[23px] w-[1px] bg-black inline-block"></span>
+                <a href="#Info" class="mr-1 text-[23px] hover:no-underline">Info</a>
             </nav>
         </header>
         
@@ -55,54 +57,103 @@
                     徳島まるまる高専生の<br>"日常"を<br>まるごと体験。
                 </h2>
             </div>
-        </section>
 
-        <div id="Story"></div>
+            </section>
 
-        <section class="relative w-full h-[70vh] bg-white">
+            <div id="Story"></div>
 
-            <!-- 背景の円たち：一番下のレイヤー -->
-            <div class="absolute inset-0 z-0 pointer-events-none">
-                <div class="absolute w-24 h-24 bg-emerald-300 rounded-full top-10 left-[1%]"></div>
-                <div class="absolute w-16 h-16 bg-blue-400 rounded-full top-1/3 right-[1%]"></div>
-                <div class="absolute w-32 h-32 bg-yellow-300 rounded-full bottom-16 left-4"></div>
-                <div class="absolute w-10 h-10 bg-pink-400 rounded-full bottom-16 left-1"></div>
+            <section class="relative w-full h-[70vh] bg-white">
+
+                <!-- 背景の円たち：一番下のレイヤー -->
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div class="absolute w-24 h-24 bg-[#FF8F00] rounded-full top-10 left-[1%]"></div>
+                    <div class="absolute w-16 h-16 bg-[#008CFF] rounded-full top-1/3 right-[1%]"></div>
+                    <div class="absolute w-32 h-32 bg-[#FFC702] rounded-full bottom-16 left-4"></div>
+                    <div class="absolute w-10 h-10 bg-[#00EDFE] rounded-full bottom-16 left-1"></div>
+                </div>
+
+
+
+                <!-- メインの文字：必ず前面へ -->
+                <div  class="relative z-10 mt-[120px] mr-[115px] font-[600] text-[23px] text-center text-black">
+                    「あなたは今から、
+                </div>
+
+                <div class="relative z-10 mt-[5px] ml-[39px] font-[600] text-[23px] text-center text-black">
+                    徳島まるまる高専生」
+                </div>
+
+                <div class="relative z-10 text-[17px] leading-[36px] text-center text-black">
+                    <p class="mt-[50px]">会議室の中では、</p>
+                    <p>あなたの先輩や同級生が談笑しています。</p>
+                    <p>先輩たちは、各々のプロジェクトや授業、</p>
+                    <p>じつはちょっと恋の話なんかもしているみたい。</p>
+                    <p>これから5年間この学校で過ごすあなたは、</p>
+                    <p>一日でも早く先輩たちと仲良くなりたい。</p>
+                    <p>ちょっと緊張するけれど、話しかけて、 </p>
+                    <p>時にはお手伝いをしてみよう。</p>
+                    <p>これは、ちょっとのんびりなある日の、</p>
+                    <p>徳島まるまる高専の学生たちの姿。</p>
+                </div>
+
+            </section>
+
+            <img src="photos/airfocus-K_VeavYEfdA-unsplash-removebg-preview.png" alt="" class="block ml-auto mt-[-80px] w-[250px]">
+
+            <div id="cast"></div>
+            <div class="text-center">
+                <h1 class="mb-6 mt-20 mx-auto text-center bg-[#FF6600] inline-block text-[38px] font-[600] text-white pl-[5px] pr-[6px] pb-[1px] rounded-lg">
+                    Characters
+                </h1>
             </div>
 
+            <section class="text-center my-10">
+
+                <!-- gridで2列（md以上で3列） -->
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+                    
+                    <!-- cast 1 -->
+                    <div class="text-center">
+                        <div class="aspect-square w-[80%] max-w-[200px] overflow-hidden rounded-lg mx-auto">
+                            <img src="photos/anthony-tran-3Xkms-gMvZg-unsplash.jpg" alt="cast1" class="w-full h-full object-cover">
+                        </div>
+                        <h2 class="mt-2 text-[18px] font-[400] text-gray-800">先輩A</h2>
+                        <h2 class="text-[16px] font-[300] text-gray-800">cast:田中太郎</h2>
+                    </div>
+
+                    <!-- cast 1 -->
+                    <div class="text-center">
+                        <div class="aspect-square w-[80%] max-w-[200px] overflow-hidden rounded-lg mx-auto">
+                            <img src="photos/bach-tran-s4vdHcJf_m0-unsplash.jpg" alt="cast1" class="w-full h-full object-cover">
+                        </div>
+                        <h2 class="mt-2 text-[18px] font-[400] text-gray-800">先輩B</h2>
+                        <h2 class="text-[16px] font-[300] text-gray-800">cast:田中太郎</h2>
+                    </div>
+
+                    <!-- cast 1 -->
+                    <div class="text-center">
+                        <div class="aspect-square w-[80%] max-w-[200px] overflow-hidden rounded-lg mx-auto">
+                            <img src="photos/redd-francisco-dLHIkzxN8sM-unsplash.jpg" alt="cast1" class="w-full h-full object-cover">
+                        </div>
+                        <h2 class="mt-2 text-[18px] font-[400] text-gray-800">先輩C</h2>
+                        <h2 class="text-[16px] font-[300] text-gray-800">cast:田中太郎</h2>
+                    </div>
+
+                    <!-- cast 1 -->
+                    <div class="text-center">
+                        <div class="aspect-square w-[80%] max-w-[200px] overflow-hidden rounded-lg mx-auto">
+                            <img src="photos/zou-meng-rWJpKloM-Ew-unsplash.jpg" alt="cast1" class="w-full h-full object-cover">
+                        </div>
+                        <h2 class="mt-2 text-[18px] font-[400] text-gray-800">先輩D</h2>
+                        <h2 class="text-[16px] font-[300] text-gray-800">cast:田中太郎</h2>
+                    </div>
 
 
-            <!-- メインの文字：必ず前面へ -->
-            <div  class="relative z-10 mt-[120px] mr-[115px] font-[600] text-[23px] text-center text-black">
-                「あなたは今から、
-            </div>
+                </div>
+                
+            </section>
 
-            <div class="relative z-10 mt-[5px] ml-[39px] font-[600] text-[23px] text-center text-black">
-                徳島まるまる高専生」
-            </div>
 
-            <div class="relative z-10 text-[17px] leading-[36px] text-center text-black">
-                <p class="mt-[50px]">会議室の中では、</p>
-                <p>あなたの先輩や同級生が談笑しています。</p>
-                <p>先輩たちは、各々のプロジェクトや授業、</p>
-                <p>じつはちょっと恋の話なんかもしているみたい。</p>
-                <p>これから5年間この学校で過ごすあなたは、</p>
-                <p>一日でも早く先輩たちと仲良くなりたい。</p>
-                <p>ちょっと緊張するけれど、話しかけて、 </p>
-                <p>時にはお手伝いをしてみよう。</p>
-                <p>これは、ちょっとのんびりなある日の、</p>
-                <p>徳島まるまる高専の学生たちの姿。</p>
-            </div>
-
-        </section>
-
-        <img src="photos/airfocus-K_VeavYEfdA-unsplash-removebg-preview.png" alt="" class="block ml-auto mt-[-80px] w-[250px]">
-
-        <div id="cast"></div>
-        <div class="text-center">
-            <h1 class="mt-10 mx-auto text-center bg-[#FF7A49] inline-block text-[38px] font-[600] text-white pl-[5px] pr-[6px] py-[1px] rounded-lg">
-            cast
-            </h1>
-        </div>
 
         <div style="height: 117px;"></div>
          
