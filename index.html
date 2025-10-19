@@ -30,16 +30,48 @@
     </head>
 
     <body class="bg-white">
+        
         <!-- ✅ ヘッダー -->
-        <header class="w-full bg-white text-black flex items-center justify-center gap-6 fixed top-0 left-0 z-50" style="height: 117px;">
-            <nav class="absolute bottom-3 flex gap-4">
-                <a href="#Story" class="text-[23px] hover:no-underline">Story</a>
-                <span class="mt-1 h-[23px] w-[1px] bg-black inline-block"></span>
-                <a href="#cast" class="text-[23px] hover:no-underline">Characters</a>
-                <span class="mt-1 h-[23px] w-[1px] bg-black inline-block"></span>
-                <a href="#Info" class="mr-1 text-[23px] hover:no-underline">Info</a>
+        <!-- ① 固定ヘッダー本体 -->
+        <header class="w-full bg-white text-black fixed top-0 left-0 z-50" style="height:117px;">
+        <div class="h-full max-w-5xl mx-auto px-4 flex items-center justify-between">
+
+            <!-- 左側：サイト名/ロゴ（不要なら消してOK） -->
+            <div class="text-[23px] font-[600]"> </div>
+
+            <!-- ② デスクトップ用ナビ（md以上で表示） -->
+            <nav class="hidden md:flex items-center gap-4 text-[23px]">
+            <a href="#Story" class="hover:no-underline">Story</a>
+            <span class="h-[23px] w-px bg-black inline-block"></span>
+            <a href="#cast" class="hover:no-underline">Characters</a>
+            <span class="h-[23px] w-px bg-black inline-block"></span>
+            <a href="#Info" class="hover:no-underline">Info</a>
             </nav>
+
+            <!-- ③ モバイル用ハンバーガー（md未満で表示） -->
+            <details class="relative md:hidden">
+            <summary class="list-none p-3 -mr-3 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/20">
+                <span class="sr-only">メニューを開く</span>
+                <!-- ハンバーガーアイコン（3本線） -->
+                <div class="w-7 h-0.5 bg-black mb-1"></div>
+                <div class="w-7 h-0.5 bg-black mb-1"></div>
+                <div class="w-7 h-0.5 bg-black"></div>
+            </summary>
+
+            <!-- ドロップダウンパネル -->
+            <div class="absolute right-0 top-[calc(100%+8px)] w-[72vw] bg-white border border-black/10 rounded-2xl shadow-xl py-2">
+                <a href="#Story" class="block px-4 py-3 text-[20px] hover:bg-black/5">Story</a>
+                <div class="mx-4 h-px bg-black/10"></div>
+                <a href="#cast" class="block px-4 py-3 text-[20px] hover:bg-black/5">Characters</a>
+                <div class="mx-4 h-px bg-black/10"></div>
+                <a href="#Info" class="block px-4 py-3 text-[20px] hover:bg-black/5">Info</a>
+            </div>
+            </details>
+        </div>
         </header>
+
+<!-- ④ ヘッダーの高さ分スペーサー（本文が隠れないように） -->
+<div style="height:117px;"></div>
         
         <!-- ヘッダーの高さ分の余白を追加 -->
         <div style="height: 117px;"></div>
