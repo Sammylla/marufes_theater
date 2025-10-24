@@ -1,48 +1,182 @@
 ---
+import MainLayout from '../layouts/MainLayout.astro';
+import type { Character } from '../types/character';
+
+const heroImage = '/photos/DSC9933.jpg';
+const logoImage = '/photos/marugotosai2025-logotype.svg'
+
+// 2行で1キャラクターを表すテキストをここに貼り付けてください。
+// 例:
+// 名前（よみ）
+// キャスト名
+const rawCharacterText = `
+城之内 晶（じょうのうち あきら）
+早雲 楓人
+../../public/photos/DSC8880.jpg
+
+八幡 律（はちまん りつ）
+八幡 咲良
+../../public/photos/DSC8812.jpg
+
+平良 大善（たいら だいぜん）
+前川 天秀
+../../public/photos/DSC8807.jpg
+
+嶌田 茉子（しまだ まこ）
+石川 莉子
+../../public/photos/DSC8765.jpg
+
+高梨 ミリー（たかなし みりー）
+メリット キア
+../../public/photos/DSC8974.jpg
+
+木村 紗絵（きむら さえ）
+宮脇 悠花
+../../public/photos/DSC8800.jpg
+
+高木 小春（たかぎ こはる）
+松原 夢実
+../../public/photos/DSC8943.jpg
+
+青木 天寧（あおき あまね）
+菊地 ひかり
+../../public/photos/DSC8880.jpg
+
+松本 凌月（まつもと りょうが）
+佐久間 康輔
+../../public/photos/DSC8777.jpg
+
+阿久澤 光留（あくざわ ひかる）
+町田 昂優
+../../public/photos/DSC8928.jpg
+`;
+
+const characters: Character[] = rawCharacterText
+  .trim()
+  .split(/\n{2,}/)
+  .map((block) => {
+    const [nameLine = '', castLine = '', imageLine] = block
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    if (!nameLine || !castLine) return undefined;
+
+    const readingMatch = nameLine.match(/(?:（|\()(.+?)(?:）|\))/);
+    const baseName = nameLine.replace(/（.*?）|\(.*?\)/g, '').trim();
+    const reading = readingMatch?.[1]?.trim();
+
+    const normalizedImage = imageLine
+      ? imageLine
+          .replace(/^(\.\.\/)+public\//, '/')
+          .replace(/^public\//, '/')
+      : '';
+
+    return {
+      name: baseName,
+      reading,
+      cast: castLine,
+      image: normalizedImage,
+    } satisfies Character;
+  })
+  .filter((entry): entry is Character => Boolean(entry));
 ---
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
-    <title>marugoto_festival_theater</title>
-    <meta name="format-detection" content="telephone=no, email=no, address=no" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="color-scheme" content="dark light" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* モバイルの基本リセット（軽量） */
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        -webkit-text-size-adjust: 100%;
-      }
-      body {
-        margin: 0;
-        /* ノッチ対応の安全余白 */
-        padding: env(safe-area-inset-top) env(safe-area-inset-right)
-          env(safe-area-inset-bottom) env(safe-area-inset-left);
-        -webkit-tap-highlight-color: transparent;
-        font-family: "Noto Sans JP", "Hiragino Sans", "メイリオ", "Meiryo",
-          sans-serif;
-      }
-      summary::-webkit-details-marker {
-        display: none;
-      }
-      /* ハンバーガー → × アニメーション */
-      #navmenu:checked ~ div .hamburger .bar-top {
-        transform: rotate(45deg);
-        transform-origin: center;
-      }
-      #navmenu:checked ~ div .hamburger .bar-mid {
-        opacity: 0;
-        transform: scaleX(0.2);
-      }
-      #navmenu:checked ~ div .hamburger .bar-btm {
-        transform: rotate(-45deg);
-        transform-origin: center;
-      }
-    </style>
-  </head>
-  <body class="flex flex-col mx-12 bg-white"></body>
-</html>
+<MainLayout>
+  <div class="relative flex flex-col w-full">
+    <img
+      src={heroImage}
+      alt="top image"
+      class="h-screen w-full object-cover brightness-75"
+    />
+    <h1 class="absolute inset-0 flex items-center justify-center text-center text-2xl text-white font-bold">
+      神山まるごと高専生の<br />"日常"を<br />まるごと体験
+    </h1>
+  </div>
+
+  <div class="flex h-64 w-full flex-col justify-center px-12 text-xl">
+    <span class="self-start text-left w-full font-semibold">「あなたは今から、</span>
+    <br />
+    <span class="self-end text-right w-full font-semibold">神山まるごと高専生。」</span>
+  </div>
+
+  <div class="flex w-full flex-col justify-center px-8 py-12 text-center space-y-4">
+    <p>会議室の中では、あなたの先輩や<br>同級生が談笑しています。</p>
+    <p>先輩たちは、各々のプロジェクトや授業、</p>
+    <p>じつはちょっと<br>恋の話なんかもしているみたい。</p>
+    <p>これから5年間この学校で<br>過ごすあなたは、</p>
+    <p>一日でも早く先輩たちと仲良くなりたい。</p>
+    <p>ちょっと緊張するけれど、話しかけて、<br>時にはお手伝いをしてみよう。</p>
+    <p class="py-20">これは、ちょっとのんびりな、<br>ある日の神山まるごと高専の学生たちの姿</p>
+  </div>
+
+  <div class="flex w-full flex-col items-center justify-center px-10 py-12">
+    <h1 class="mb-8 rounded-xl bg-[#FF6602] px-4 py-2 text-3xl font-bold font-futura text-white">
+      CHARACTERS
+    </h1>
+    <div class="grid w-full max-w-4xl grid-cols-2 gap-10">
+      {characters.length === 0 ? (
+        <p class="col-span-full text-center text-sm text-slate-500">
+          キャラクターデータを追加してください。
+        </p>
+      ) : (
+        characters.map((chara) => (
+          <article class="flex w-full flex-col items-center text-center" key={chara.name}>
+            {chara.image ? (
+              <img
+                src={chara.image}
+                alt={chara.name}
+                class="mb-4 aspect-square w-full max-w-[12rem] rounded-xl object-cover"
+              />
+            ) : (
+              <div class="mb-4 aspect-square w-full max-w-[12rem] rounded-xl bg-slate-200" />
+            )}
+            <h2 class="text-lg font-bold">{chara.name}</h2>
+            {chara.reading && (
+              <p class="text-xs text-slate-500">{chara.reading}</p>
+            )}
+            <p class="mt-2 text-sm text-slate-700">cast: {chara.cast}</p>
+          </article>
+        ))
+      )}
+    </div>
+  </div>
+
+  <div class="flex w-full flex-col items-center justify-center px-10 py-16">
+    <h1 class="mb-8 rounded-xl bg-[#008CFF] px-4 py-2 text-3xl font-bold font-futura text-white">
+      INFOMATION
+    </h1>
+    <div class="flex w-full max-w-3xl flex-col gap-6">
+      <div class="grid grid-cols-[max-content_1fr] items-start gap-x-6 gap-y-1">
+        <p class="font-bold">上映時間(両日):</p>
+        <div class="text-sm text-right">
+          <p>10:30~11:30</p>
+          <p>13:30~14:40</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[max-content_1fr] items-start gap-x-6 gap-y-1">
+        <p class="font-bold">上映場所:</p>
+        <div class="text-sm text-right">
+          <p>神山まるごと高専HOME</p>
+          <p>2F 会議室1</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-[max-content_1fr] items-start gap-x-6 gap-y-1">
+        <p class="font-bold">募集人数:</p>
+        <div class="text-sm text-right">
+          <p>40名 / 回</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-[#333] text-white w-full flex flex-col items-center px-2">
+    <div class="w-full flex justify-center items-center">
+      <img src={logoImage} alt="marugotosai2025 logotype" class="h-8 w-auto object-contain mt-12" />
+      <div class="border-l"></div>
+    </div>
+    <div class="flex flex-col py-4 items-center justify-center">
+      <p class="text-[0.75rem]">Developed by <a href="https://x.com/kz25_kmc">Kizuki🏕️  </a></p>
+      <p class="pt-16 text-[0.75rem]">©まるごと祭2025実行委員会</p>
+    </div>
+  </div>
+</MainLayout>

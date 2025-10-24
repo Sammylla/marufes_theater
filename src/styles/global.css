@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  -webkit-tap-highlight-color: transparent;
+  font-family: "fot-tsukuardgothic-std", "Noto Sans JP", "Hiragino Sans",
+    "\30E1\30A4\30EA\30AA", "Meiryo", sans-serif;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+#navmenu:checked ~ div .hamburger .bar-top {
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+#navmenu:checked ~ div .hamburger .bar-mid {
+  opacity: 0;
+  transform: scaleX(0.2);
+}
+
+#navmenu:checked ~ div .hamburger .bar-btm {
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
