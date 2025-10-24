@@ -1,0 +1,48 @@
+---
+---
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
+    <title>marugoto_festival_theater</title>
+    <meta name="format-detection" content="telephone=no, email=no, address=no" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark light" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* モバイルの基本リセット（軽量） */
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        /* ノッチ対応の安全余白 */
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
+        -webkit-tap-highlight-color: transparent;
+        font-family: "Noto Sans JP", "Hiragino Sans", "メイリオ", "Meiryo",
+          sans-serif;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      /* ハンバーガー → × アニメーション */
+      #navmenu:checked ~ div .hamburger .bar-top {
+        transform: rotate(45deg);
+        transform-origin: center;
+      }
+      #navmenu:checked ~ div .hamburger .bar-mid {
+        opacity: 0;
+        transform: scaleX(0.2);
+      }
+      #navmenu:checked ~ div .hamburger .bar-btm {
+        transform: rotate(-45deg);
+        transform-origin: center;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col mx-12 bg-white"></body>
+</html>
