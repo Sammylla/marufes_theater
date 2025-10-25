@@ -180,9 +180,17 @@ const characters: Character[] = rawCharacterText
     <div class="flex w-full max-w-3xl flex-col gap-6">
       <div class="grid grid-cols-[max-content_1fr] items-start gap-x-6 gap-y-1">
         <p class="font-bold">上映時間(両日):</p>
-        <div class="text-sm text-right">
-          <p>10:30~11:30</p>
-          <p>13:30~14:40</p>
+        <div class="text-sm text-left sm:text-right space-y-3">
+          <div>
+            <p class="font-semibold">1日目</p>
+            <p>13:30~14:40</p>
+            <p class="text-xs text-orange-600">※10:30~11:30枠は中止となりました</p>
+          </div>
+          <div>
+            <p class="font-semibold">2日目</p>
+            <p>10:30~11:30</p>
+            <p>13:30~14:40</p>
+          </div>
         </div>
       </div>
       <div class="grid grid-cols-[max-content_1fr] items-start gap-x-6 gap-y-1">
@@ -197,6 +205,12 @@ const characters: Character[] = rawCharacterText
         <div class="text-sm text-right">
           <p>40名 / 回</p>
         </div>
+      </div>
+      <div class="rounded-xl border border-orange-200 bg-orange-50 p-4 text-sm text-orange-900">
+        <p class="font-semibold text-base">お知らせ</p>
+        <p class="mt-2 leading-relaxed">
+          一日目 10:30~11:30 の上映枠は運営都合により中止となりました。13:30 の回は予定通り実施しますので、参加予定の方は時間にご注意ください。
+        </p>
       </div>
     </div>
   </div>
