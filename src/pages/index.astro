@@ -89,6 +89,16 @@ const characters: Character[] = rawCharacterText
   .filter((entry): entry is Character => Boolean(entry));
 ---
 <MainLayout>
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSd-osNXHC2dSNFcK4qZhLi9TAkEawsS9e7bl4hw7lmr7FztSw/viewform?usp=preview"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed right-4 top-4 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#FF6602] text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 sm:flex"
+    aria-label="参加アンケートを開く"
+  >
+    ↗
+  </a>
+
   <div class="relative flex flex-col w-full">
     <img
       src={heroImage}
@@ -217,9 +227,9 @@ const characters: Character[] = rawCharacterText
           href="https://docs.google.com/forms/d/e/1FAIpQLSd-osNXHC2dSNFcK4qZhLi9TAkEawsS9e7bl4hw7lmr7FztSw/viewform?usp=preview"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-full bg-[#FF6602] px-8 py-3 text-base font-semibold text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 hover:bg-[#ff7d2c]"
-        >
-          参加アンケートに回答する
+          class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#FF6602] text-base font-semibold text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 hover:bg-[#ff7d2c]"
+          >
+          <span class="sr-only">参加アンケートに回答する</span>
           <span aria-hidden="true">↗</span>
         </a>
       </div>
