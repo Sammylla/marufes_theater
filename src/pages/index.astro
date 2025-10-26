@@ -89,6 +89,16 @@ const characters: Character[] = rawCharacterText
   .filter((entry): entry is Character => Boolean(entry));
 ---
 <MainLayout>
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSd-osNXHC2dSNFcK4qZhLi9TAkEawsS9e7bl4hw7lmr7FztSw/viewform?usp=preview"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fixed right-3 top-3 z-50 flex items-center gap-2 rounded-full bg-[#FF6602] px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-orange-300 transition hover:-translate-y-0.5 hover:bg-[#ff7d2c] sm:right-4 sm:top-4 sm:px-5 sm:py-2.5 sm:text-sm"
+  >
+    <span>アンケート</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+
   <div class="relative flex flex-col w-full">
     <img
       src={heroImage}
@@ -211,6 +221,17 @@ const characters: Character[] = rawCharacterText
         <p class="mt-2 leading-relaxed">
           一日目 10:30~11:30 の上映枠は運営都合により中止となりました。13:30 の回は予定通り実施しますので、参加予定の方は時間にご注意ください。
         </p>
+      </div>
+      <div class="mt-4 flex justify-center">
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSd-osNXHC2dSNFcK4qZhLi9TAkEawsS9e7bl4hw7lmr7FztSw/viewform?usp=preview"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-[#FF6602] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-200 transition hover:-translate-y-0.5 hover:bg-[#ff7d2c]"
+        >
+          <span>参加アンケートに回答する</span>
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </div>
